@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- IMPORTANT: each id must match the fragment id in navigation/nav_graph.xml -->
+    <item
+        android:id="@+id/dashboardFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/title_dashboard" />
+    <item
+        android:id="@+id/medicationListFragment"
+        android:icon="@drawable/ic_medication"
+        android:title="@string/title_medications" />
+    <item
+        android:id="@+id/healthLogListFragment"
+        android:icon="@drawable/ic_health_log"
+        android:title="@string/title_health_log" />
+    <item
+        android:id="@+id/healthInfoFragment"
+        android:icon="@drawable/ic_info"
+        android:title="@string/title_health_info" />
+    <item
+        android:id="@+id/sosFragment"
+        android:icon="@drawable/ic_sos"
+        android:title="@string/title_sos" />
+</menu>

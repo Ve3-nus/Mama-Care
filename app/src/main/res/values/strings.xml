@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MamaCare</string>
+
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_medications">Medications</string>
+    <string name="title_health_log">Health Log</string>
+    <string name="title_health_info">Health Info</string>
+    <string name="title_sos">SOS</string>
+    <string name="title_medication">Medication</string>
+    <string name="title_health_record">Health Record</string>
+</resources>
