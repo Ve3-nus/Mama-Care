@@ -1,4 +1,4 @@
-package com.example.mamacare_api_test.network
+package com.mamacare.app.data.remote
 
 data class NewsResponse(
     val status: String,
