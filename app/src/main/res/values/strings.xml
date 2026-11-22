@@ -8,4 +8,5 @@
     <string name="title_sos">SOS</string>
     <string name="title_medication">Medication</string>
     <string name="title_health_record">Health Record</string>
+    <string name="article_image_description">Article thumbnail</string>
 </resources>
