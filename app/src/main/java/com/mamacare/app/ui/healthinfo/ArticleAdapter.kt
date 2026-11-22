@@ -41,8 +41,8 @@ class ArticleAdapter(
             // Glide loads the thumbnail; placeholder shows while loading or on failure
             Glide.with(binding.ivArticleImage)
                 .load(article.urlToImage)
-                .placeholder(R.drawable.ic_launcher_background) // TODO: swap for a proper placeholder
-                .error(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_article_placeholder)
+                .error(R.drawable.ic_article_placeholder)
                 .into(binding.ivArticleImage)
 
             binding.root.setOnClickListener { onArticleClick(article) }
