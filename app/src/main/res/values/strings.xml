@@ -18,4 +18,10 @@
     <string name="sos_button">SOS</string>
     <string name="sos_button_description">Emergency SOS call button</string>
     <string name="sos_note">If you are in danger or need urgent medical help, call your local emergency number straight away.</string>
+    <string name="error_required">This field is required</string>
+    <string name="error_time_invalid">Enter a valid time, e.g. 08:00 or 8:00 AM</string>
+    <string name="error_number_invalid">Enter a valid number</string>
+    <string name="error_weight_range">Weight must be between 20 and 300 kg</string>
+    <string name="error_bp_format">Use the format 120/80</string>
+    <string name="error_bp_range">Check the values (e.g. systolic 50 to 250, diastolic 30 to 150, systolic higher)</string>
 </resources>
