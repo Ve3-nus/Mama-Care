@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <!-- ============ Top-level screens (bottom navigation) ============ -->
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.mamacare.app.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboard_to_medicationList"
+            app:destination="@id/medicationListFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_healthLogList"
+            app:destination="@id/healthLogListFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_healthInfo"
+            app:destination="@id/healthInfoFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_sos"
+            app:destination="@id/sosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/medicationListFragment"
+        android:name="com.mamacare.app.ui.medication.MedicationListFragment"
+        android:label="@string/title_medications"
+        tools:layout="@layout/fragment_medication_list">
+        <action
+            android:id="@+id/action_medicationList_to_addEdit"
+            app:destination="@id/addEditMedicationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/healthLogListFragment"
+        android:name="com.mamacare.app.ui.healthlog.HealthLogListFragment"
+        android:label="@string/title_health_log"
+        tools:layout="@layout/fragment_health_log_list">
+        <action
+            android:id="@+id/action_healthLogList_to_addEdit"
+            app:destination="@id/addEditHealthLogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/healthInfoFragment"
+        android:name="com.mamacare.app.ui.healthinfo.HealthInfoFragment"
+        android:label="@string/title_health_info"
+        tools:layout="@layout/fragment_health_info" />
+
+    <fragment
+        android:id="@+id/sosFragment"
+        android:name="com.mamacare.app.ui.sos.SosFragment"
+        android:label="@string/title_sos"
+        tools:layout="@layout/fragment_sos" />
+
+    <!-- ============ Detail screens (receive data via Safe Args) ============ -->
+
+    <fragment
+        android:id="@+id/addEditMedicationFragment"
+        android:name="com.mamacare.app.ui.medication.AddEditMedicationFragment"
+        android:label="@string/title_medication"
+        tools:layout="@layout/fragment_add_edit_medication">
+        <!-- -1 means "new medication"; any other value means "edit this id" -->
+        <argument
+            android:name="medicationId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addEditHealthLogFragment"
+        android:name="com.mamacare.app.ui.healthlog.AddEditHealthLogFragment"
+        android:label="@string/title_health_record"
+        tools:layout="@layout/fragment_add_edit_health_log">
+        <argument
+            android:name="logId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+    </fragment>
+
+</navigation>
