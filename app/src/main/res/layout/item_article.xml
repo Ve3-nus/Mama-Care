@@ -8,7 +8,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!-- TODO (Sync with Brian): Verify package and field names once Article.kt is merged -->
         <variable
             name="article"
             type="com.mamacare.app.data.remote.Article" />

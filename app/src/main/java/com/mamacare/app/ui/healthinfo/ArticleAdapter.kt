@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mamacare.app.R
-import com.mamacare.app.data.remote.Article // TODO (Sync with Brian): verify package
+import com.mamacare.app.data.remote.Article
 import com.mamacare.app.databinding.ItemArticleBinding
 
 /**
@@ -40,7 +40,7 @@ class ArticleAdapter(
 
             // Glide loads the thumbnail; placeholder shows while loading or on failure
             Glide.with(binding.ivArticleImage)
-                .load(article.imageUrl)
+                .load(article.urlToImage)
                 .placeholder(R.drawable.ic_launcher_background) // TODO: swap for a proper placeholder
                 .error(R.drawable.ic_launcher_background)
                 .into(binding.ivArticleImage)
