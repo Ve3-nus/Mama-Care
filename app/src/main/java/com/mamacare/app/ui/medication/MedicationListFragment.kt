@@ -2,7 +2,6 @@ package com.mamacare.app.ui.medication
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.mamacare.app.R
@@ -17,7 +16,7 @@ class MedicationListFragment : Fragment(R.layout.fragment_medication_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // No argument given => default -1 => "add new"
-        view.findViewById<Button>(R.id.btnAdd).setOnClickListener {
+        view.findViewById<View>(R.id.btnAdd).setOnClickListener {
             findNavController().navigate(
                 MedicationListFragmentDirections.actionMedicationListToAddEdit()
             )
