@@ -8,10 +8,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!-- TODO (Sync with Boniface): Verify exact field names once Medication entity is merged -->
         <variable
             name="medication"
-            type="com.mamacare.app.data.local.Medication" />
+            type="com.mamacare.app.data.local.entity.Medication" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
