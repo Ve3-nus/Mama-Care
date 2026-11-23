@@ -15,10 +15,10 @@ interface MedicationDao {
     suspend fun insert(medication: Medication): Long
 
     @Update
-    suspend fun update(medication: Medication)
+    suspend fun update(medication: Medication): Int
 
     @Delete
-    suspend fun delete(medication: Medication)
+    suspend fun delete(medication: Medication): Int
 
     @Query("SELECT * FROM medications ORDER BY hour, minute")
     fun getAll(): LiveData<List<Medication>>

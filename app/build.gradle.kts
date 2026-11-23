@@ -82,9 +82,11 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     // Room (local database)
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
+    // Room (local database)
+    val roomVersion = "2.8.5"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
     // Retrofit (API) + Gson
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
@@ -106,5 +108,5 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    androidTestImplementation("androidx.room:room-testing:2.6.1")
+    androidTestImplementation("androidx.room:room-testing:$roomVersion")
 }

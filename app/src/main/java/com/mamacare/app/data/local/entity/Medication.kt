@@ -10,5 +10,8 @@ data class Medication(
     val hour: Int,
     val minute: Int,
     val notes: String = ""
-)
+) {
+    val time: String
+        get() = String.format(java.util.Locale.US, "%02d:%02d", hour, minute)
+}
 

@@ -14,10 +14,10 @@ interface HealthLogDao {
     suspend fun insert(log: HealthLog): Long
 
     @Update
-    suspend fun update(log: HealthLog)
+    suspend fun update(log: HealthLog): Int
 
     @Delete
-    suspend fun delete(log: HealthLog)
+    suspend fun delete(log: HealthLog): Int
 
     @Query("SELECT * FROM health_logs ORDER BY dateMillis DESC")
     fun getAll(): LiveData<List<HealthLog>>
