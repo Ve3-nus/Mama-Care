@@ -8,10 +8,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!-- TODO (Sync with Boniface): Verify exact field names once HealthLog entity is merged -->
+        <import type="com.mamacare.app.ui.Formatters" />
         <variable
             name="healthLog"
-            type="com.mamacare.app.data.local.HealthLog" />
+            type="com.mamacare.app.data.local.entity.HealthLog" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -31,7 +31,7 @@
                 android:id="@+id/tvLogDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{healthLog.date}"
+                android:text="@{Formatters.date(healthLog.dateMillis)}"
                 android:textAppearance="?attr/textAppearanceLabelMedium"
                 android:textColor="?attr/colorPrimary"
                 app:layout_constraintEnd_toStartOf="@id/btnDeleteLog"
@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text='@{"BP: " + healthLog.bloodPressure + "  •  Weight: " + healthLog.weight + " kg"}'
+                android:text='@{"BP: " + Formatters.bloodPressure(healthLog.systolic, healthLog.diastolic) + "  •  Weight: " + Formatters.weight(healthLog.weightKg) + " kg"}'
                 android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/btnDeleteLog"
