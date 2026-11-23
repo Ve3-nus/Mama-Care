@@ -1,5 +1,6 @@
 # MamaCare 
 An Android app that helps pregnant women and new mothers in Kenya track medications, health readings and maternal health information, with reminders and one-tap emergency calling.
+
 ## The problem
 
 Many expectant and new mothers, especially in lower-income areas, rely on paper records, memory or no system at all. Records get lost, medication doses are missed, and there is no easy way to show a doctor how weight or blood pressure has changed over time. Poor tracking contributes to missed appointments and avoidable complications.
