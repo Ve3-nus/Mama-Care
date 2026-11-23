@@ -14,7 +14,7 @@ class MamaCareViewModelFactory(app: Application) : ViewModelProvider.Factory {
 
     private val repo: MamaCareRepository by lazy {
         val db = AppDatabase.getInstance(app)
-        MamaCareRepository(db.medicationDao(), db.healthLogDao(), RetrofitClient.api)
+        MamaCareRepository(db.medicationDao(), db.healthLogDao(), RetrofitClient.service)
     }
 
     @Suppress("UNCHECKED_CAST")

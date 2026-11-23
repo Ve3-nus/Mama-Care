@@ -5,13 +5,13 @@ import com.mamacare.app.data.local.HealthLog
 import com.mamacare.app.data.local.HealthLogDao
 import com.mamacare.app.data.local.Medication
 import com.mamacare.app.data.local.MedicationDao
-import com.mamacare.app.data.remote.ApiService
 import com.mamacare.app.data.remote.Article
+import com.mamacare.app.data.remote.NewsService
 
 class MamaCareRepository(
     private val medicationDao: MedicationDao,
     private val healthLogDao: HealthLogDao,
-    private val api: ApiService
+    private val newsService: NewsService
 ) {
     // Medications
     val medications: LiveData<List<Medication>> = medicationDao.getAll()
@@ -27,6 +27,7 @@ class MamaCareRepository(
     suspend fun updateHealthLog(l: HealthLog) = healthLogDao.update(l)
     suspend fun deleteHealthLog(l: HealthLog) = healthLogDao.delete(l)
 
-    // Remote articles
-    suspend fun fetchArticles(): List<Article> = api.getArticles()
+    // Remote articles (the API wraps the list in NewsResponse)
+    suspend fun fetchArticles(): List<Article> =
+        newsService.getMaternalHealthNews().articles
 }
