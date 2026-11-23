@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mamacare.app.data.local.HealthLog
+import com.mamacare.app.data.local.entity.HealthLog
 import com.mamacare.app.data.repository.MamaCareRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,7 +41,7 @@ class HealthLogViewModel(private val repo: MamaCareRepository) : ViewModel() {
 
     fun save(log: HealthLog) {
         viewModelScope.launch(Dispatchers.IO) {
-            if (log.id == 0L) repo.addHealthLog(log) else repo.updateHealthLog(log)
+            if (log.id == 0) repo.addHealthLog(log) else repo.updateHealthLog(log)
             _saved.postValue(true)
         }
     }
