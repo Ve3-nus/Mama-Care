@@ -15,7 +15,7 @@ class HealthLogListFragment : Fragment(R.layout.fragment_health_log_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<Button>(R.id.btnAdd).setOnClickListener {
+        view.findViewById<View>(R.id.btnAdd).setOnClickListener {
             findNavController().navigate(
                 HealthLogListFragmentDirections.actionHealthLogListToAddEdit()
             )
