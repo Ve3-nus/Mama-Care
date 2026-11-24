@@ -82,7 +82,6 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     // Room (local database)
-    // Room (local database)
     val roomVersion = "2.8.5"
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")

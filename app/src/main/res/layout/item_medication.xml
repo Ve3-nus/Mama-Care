@@ -8,7 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!-- TODO (Sync with Boniface): Verify exact field names once Medication entity is merged -->
+        <import type="com.mamacare.app.ui.Formatters" />
         <variable
             name="medication"
             type="com.mamacare.app.data.local.entity.Medication" />
@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text='@{medication.dosage + " • " + medication.time}'
+                android:text='@{medication.dosage + " • " + Formatters.time(medication.hour, medication.minute)}'
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintEnd_toStartOf="@id/btnDeleteMedication"
