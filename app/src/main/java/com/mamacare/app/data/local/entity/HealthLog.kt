@@ -1,6 +1,10 @@
 package com.mamacare.app.data.local.entity
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Entity(tableName = "health_logs")
 data class HealthLog(
@@ -19,4 +23,11 @@ data class HealthLog(
 
     val weight: String
         get() = weightKg.toString()
+}
+
+    val date: String
+        get() {
+            val formatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
+            return formatter.format(Date(dateMillis))
+        }
 }
