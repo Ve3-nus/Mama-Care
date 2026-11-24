@@ -27,6 +27,7 @@ class HealthLogAdapter(
     class HealthLogViewHolder(
         private val binding: ItemHealthLogBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(
             healthLog: HealthLog,
             onItemClick: (HealthLog) -> Unit,

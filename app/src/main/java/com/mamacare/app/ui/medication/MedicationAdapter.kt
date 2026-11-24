@@ -27,6 +27,7 @@ class MedicationAdapter(
     class MedicationViewHolder(
         private val binding: ItemMedicationBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(
             medication: Medication,
             onItemClick: (Medication) -> Unit,

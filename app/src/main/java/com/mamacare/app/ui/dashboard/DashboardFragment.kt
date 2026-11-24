@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.mamacare.app.databinding.FragmentDashboardBinding
+import com.mamacare.app.ui.Formatters
+import com.mamacare.app.ui.MamaCareViewModelFactory
+import com.mamacare.app.ui.medication.MedicationViewModel
 import com.mamacare.app.data.local.SessionManager
 import com.mamacare.app.ui.Formatters
 import com.mamacare.app.ui.MamaCareViewModelFactory
@@ -68,6 +71,11 @@ class DashboardFragment : Fragment() {
                     .build()
             )
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onDestroyView() {
