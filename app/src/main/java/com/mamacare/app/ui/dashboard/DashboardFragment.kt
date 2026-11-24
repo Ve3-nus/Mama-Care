@@ -1,33 +1,65 @@
 package com.mamacare.app.ui.dashboard
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.mamacare.app.R
+import com.mamacare.app.databinding.FragmentDashboardBinding
+import com.mamacare.app.ui.Formatters
+import com.mamacare.app.ui.MamaCareViewModelFactory
+import com.mamacare.app.ui.medication.MedicationViewModel
 
-/**
- * STUB. TODO (UI members): replace with the real dashboard
- * (next appointment / today's medication). The navigation actions below stay.
- */
-class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
+class DashboardFragment : Fragment() {
+
+    private var _binding: FragmentDashboardBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var medicationViewModel: MedicationViewModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val nav = findNavController()
 
-        view.findViewById<Button>(R.id.btnMedications).setOnClickListener {
+        val factory = MamaCareViewModelFactory(requireActivity().application)
+        medicationViewModel = ViewModelProvider(this, factory)[MedicationViewModel::class.java]
+
+        medicationViewModel.medications.observe(viewLifecycleOwner) { meds ->
+            if (meds.isNullOrEmpty()) {
+                binding.dailyMedication = "No medications scheduled today"
+            } else {
+                val nextMed = meds.first()
+                binding.dailyMedication = "${nextMed.name} (${nextMed.dosage}) • ${Formatters.time(nextMed.hour, nextMed.minute)}"
+            }
+        }
+
+        binding.btnMedications.setOnClickListener {
             nav.navigate(DashboardFragmentDirections.actionDashboardToMedicationList())
         }
-        view.findViewById<Button>(R.id.btnHealthLog).setOnClickListener {
+        binding.btnHealthLog.setOnClickListener {
             nav.navigate(DashboardFragmentDirections.actionDashboardToHealthLogList())
         }
-        view.findViewById<Button>(R.id.btnHealthInfo).setOnClickListener {
+        binding.btnHealthInfo.setOnClickListener {
             nav.navigate(DashboardFragmentDirections.actionDashboardToHealthInfo())
         }
-        view.findViewById<Button>(R.id.btnSos).setOnClickListener {
+        binding.btnSos.setOnClickListener {
             nav.navigate(DashboardFragmentDirections.actionDashboardToSos())
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
