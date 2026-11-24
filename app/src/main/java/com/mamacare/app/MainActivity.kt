@@ -11,6 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.NavOptions
+import com.mamacare.app.data.local.SessionManager
 
 /**
  * Single Activity that hosts every screen.
@@ -46,10 +48,18 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.setupWithNavController(navController)
 
-        // Hide the bottom bar on detail screens (Add/Edit forms).
+        // Hide the bottom bar on authentication and detail screens.
         navController.addOnDestinationChangedListener { _, destination, _ ->
             bottomNav.visibility =
                 if (destination.id in topLevelDestinations) View.VISIBLE else View.GONE
+        }
+
+        if (SessionManager(this).isLoggedIn()) {
+            navController.navigate(
+                R.id.dashboardFragment,
+                null,
+                NavOptions.Builder().setPopUpTo(R.id.loginFragment, true).build()
+            )
         }
     }
 

@@ -8,6 +8,8 @@
     <string name="title_sos">SOS</string>
     <string name="title_medication">Medication</string>
     <string name="title_health_record">Health Record</string>
+    <string name="title_login">Login</string>
+    <string name="title_signup">Sign Up</string>
     <string name="article_image_description">Article thumbnail</string>
     <string name="health_info_empty">No articles available right now.</string>
     <string name="health_info_error">Couldn\'t load articles. Check your internet connection and try again.</string>
