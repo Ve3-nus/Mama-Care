@@ -9,8 +9,6 @@ import com.mamacare.app.data.local.entity.Medication
 import com.mamacare.app.databinding.ItemMedicationBinding
 
 class MedicationAdapter(
-    private val onMedicationClick: (Medication) -> Unit = {},
-    private val onDeleteClick: (Medication) -> Unit = {}
     private val onItemClick: (Medication) -> Unit,
     private val onDeleteClick: (Medication) -> Unit
 ) : ListAdapter<Medication, MedicationAdapter.MedicationViewHolder>(MedicationDiffCallback()) {
@@ -23,7 +21,6 @@ class MedicationAdapter(
     }
 
     override fun onBindViewHolder(holder: MedicationViewHolder, position: Int) {
-        holder.bind(getItem(position), onMedicationClick, onDeleteClick)
         holder.bind(getItem(position), onItemClick, onDeleteClick)
     }
 
@@ -32,16 +29,11 @@ class MedicationAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             medication: Medication,
-            onMedicationClick: (Medication) -> Unit,
-
-        fun bind(
-            medication: Medication,
             onItemClick: (Medication) -> Unit,
             onDeleteClick: (Medication) -> Unit
         ) {
             binding.medication = medication
             binding.executePendingBindings()
-            binding.root.setOnClickListener { onMedicationClick(medication) }
 
             binding.root.setOnClickListener { onItemClick(medication) }
             binding.btnDeleteMedication.setOnClickListener { onDeleteClick(medication) }
