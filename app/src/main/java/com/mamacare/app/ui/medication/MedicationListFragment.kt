@@ -30,6 +30,8 @@ class MedicationListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // No argument given => default -1 => "add new"
+        view.findViewById<View>(R.id.btnAdd).setOnClickListener {
 
         val factory = MamaCareViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, factory)[MedicationViewModel::class.java]

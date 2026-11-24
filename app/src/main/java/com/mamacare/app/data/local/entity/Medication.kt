@@ -14,6 +14,9 @@ data class Medication(
     val notes: String = ""
 ) {
     val time: String
+        get() = String.format(java.util.Locale.US, "%02d:%02d", hour, minute)
+}
+
         get() {
             val h = if (hour == 0) 12 else if (hour > 12) hour - 12 else hour
             val amPm = if (hour >= 12) "PM" else "AM"
