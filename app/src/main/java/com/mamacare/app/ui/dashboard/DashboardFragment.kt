@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.mamacare.app.databinding.FragmentDashboardBinding
+import com.mamacare.app.data.local.SessionManager
 import com.mamacare.app.ui.Formatters
 import com.mamacare.app.ui.MamaCareViewModelFactory
 import com.mamacare.app.ui.medication.MedicationViewModel
+import androidx.navigation.NavOptions
 
 class DashboardFragment : Fragment() {
 
@@ -55,6 +57,16 @@ class DashboardFragment : Fragment() {
         }
         binding.btnSos.setOnClickListener {
             nav.navigate(DashboardFragmentDirections.actionDashboardToSos())
+        }
+        binding.btnLogout.setOnClickListener {
+            SessionManager(requireContext()).logout()
+            nav.navigate(
+                com.mamacare.app.R.id.loginFragment,
+                null,
+                NavOptions.Builder()
+                    .setPopUpTo(com.mamacare.app.R.id.dashboardFragment, true)
+                    .build()
+            )
         }
     }
 
