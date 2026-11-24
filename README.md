@@ -1,8 +1,5 @@
-# MamaCare 🤰
-
+# MamaCare 
 An Android app that helps pregnant women and new mothers in Kenya track medications, health readings and maternal health information, with reminders and one-tap emergency calling.
-
-> CAT 2 group project, built in Kotlin with MVVM + Repository architecture.
 
 ## The problem
 

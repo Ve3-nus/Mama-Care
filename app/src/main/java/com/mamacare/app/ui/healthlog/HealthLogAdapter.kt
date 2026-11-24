@@ -11,6 +11,8 @@ import com.mamacare.app.databinding.ItemHealthLogBinding
 class HealthLogAdapter(
     private val onLogClick: (HealthLog) -> Unit = {},
     private val onDeleteClick: (HealthLog) -> Unit = {}
+    private val onItemClick: (HealthLog) -> Unit,
+    private val onDeleteClick: (HealthLog) -> Unit
 ) : ListAdapter<HealthLog, HealthLogAdapter.HealthLogViewHolder>(HealthLogDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HealthLogViewHolder {
@@ -22,6 +24,7 @@ class HealthLogAdapter(
 
     override fun onBindViewHolder(holder: HealthLogViewHolder, position: Int) {
         holder.bind(getItem(position), onLogClick, onDeleteClick)
+        holder.bind(getItem(position), onItemClick, onDeleteClick)
     }
 
     class HealthLogViewHolder(
@@ -36,6 +39,17 @@ class HealthLogAdapter(
             binding.executePendingBindings()
             binding.root.setOnClickListener { onLogClick(log) }
             binding.btnDeleteLog.setOnClickListener { onDeleteClick(log) }
+
+        fun bind(
+            healthLog: HealthLog,
+            onItemClick: (HealthLog) -> Unit,
+            onDeleteClick: (HealthLog) -> Unit
+        ) {
+            binding.healthLog = healthLog
+            binding.executePendingBindings()
+
+            binding.root.setOnClickListener { onItemClick(healthLog) }
+            binding.btnDeleteLog.setOnClickListener { onDeleteClick(healthLog) }
         }
     }
 
