@@ -30,6 +30,7 @@ class HealthLogListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.findViewById<View>(R.id.btnAdd).setOnClickListener {
 
         val factory = MamaCareViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, factory)[HealthLogViewModel::class.java]
