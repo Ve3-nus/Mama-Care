@@ -13,21 +13,14 @@ data class HealthLog(
     val systolic: Int,
     val diastolic: Int,
     val dateMillis: Long = System.currentTimeMillis(),
-    val notes: String = ""
+    val notes: String = "",
 ) {
     val date: String
-        get() = java.text.SimpleDateFormat("MMM dd, yyyy", java.util.Locale.US).format(java.util.Date(dateMillis))
+        get() = SimpleDateFormat("MMM dd, yyyy", Locale.US).format(Date(dateMillis))
 
     val bloodPressure: String
         get() = "$systolic/$diastolic"
 
     val weight: String
         get() = weightKg.toString()
-}
-
-    val date: String
-        get() {
-            val formatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
-            return formatter.format(Date(dateMillis))
-        }
 }

@@ -28,6 +28,5 @@ class MamaCareRepository(
     suspend fun deleteHealthLog(l: HealthLog) = healthLogDao.delete(l)
 
     // Remote articles (the API wraps the list in NewsResponse)
-    suspend fun fetchArticles(): List<Article> =
-        newsService.getMaternalHealthNews().articles
+        suspend fun fetchArticles(): List<Article> = newsService.getMaternalHealthNews().articles ?: emptyList()
 }
